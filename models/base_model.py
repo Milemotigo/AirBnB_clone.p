@@ -16,9 +16,14 @@ class BaseModel:
         return self.updated_at
         #self.created_at = datetime.datetime.now().isoformat()
     def to_dict(self):
-        to_dict = {}
-        to_dict['__class__'] = self.__class__.__name__
-        to_dict.update(self.__dict__)
+        #to_dict = {}
+        key = '__class__'
+        value =  self.__class__.__name__
+        #to_dict['__class__'] = self.__class__.__name__
+        #to_dict.update(self.__dict__)
+        #for (key, value) in self.__dict__.items():
+        #    to_dict[key] = value
+        to_dict = {key: value for (key, value) in self.__dict__.items()}
         return to_dict
 #my_object = BaseModel()
 #print(f" User id is {my_object.uuid}")
